@@ -66,6 +66,8 @@ private:
     void _finish();
   };
 
+  static constexpr int64_t kDatabaseBusyTimeoutMs = 1000;
+
 public:
   SqliteDataSource(const std::string& file);
 
