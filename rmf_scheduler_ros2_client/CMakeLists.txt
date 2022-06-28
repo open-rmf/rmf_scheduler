@@ -30,6 +30,7 @@ if(BUILD_TESTING)
   find_package(ament_cmake_catch2 REQUIRED)
   find_package(ament_cmake_uncrustify REQUIRED)
   find_package(rmf_utils REQUIRED)
+  find_package(std_msgs REQUIRED)
   find_package(Boost REQUIRED COMPONENTS filesystem)
   find_package(Threads REQUIRED)
   find_file(uncrustify_config_file
@@ -49,8 +50,12 @@ if(BUILD_TESTING)
     ament_add_catch2(${target}
       ${_SOURCES}
     )
+    target_include_directories(${target} PRIVATE
+      ${std_msgs_INCLUDE_DIRS}
+    )
     target_link_libraries(${target} PRIVATE
       rmf_utils::rmf_utils
+      ${std_msgs_LIBRARIES}
     )
   endfunction()
 
