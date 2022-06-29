@@ -102,6 +102,8 @@ void SqliteDataSource::_Transaction::_finish()
 SqliteDataSource::SqliteDataSource(const std::string& file)
 {
   sqlite3_open(file.c_str(), &this->_db);
+  sqlite3_busy_timeout(this->_db, kDatabaseBusyTimeoutMs);
+  sqlite3_db_cacheflush(this->_db);
   char* errmsg;
 
   int result = sqlite3_exec(
