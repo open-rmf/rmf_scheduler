@@ -11,7 +11,7 @@
 
   <depend>rclcpp</depend>
   <depend>rmf_scheduler_msgs</depend>
-  <depend>libsqlite3-0</depend>
+  <depend>sqlite3-vendor</depend>
 
   <build_depend>libsqlite3-dev</build_depend>
 
